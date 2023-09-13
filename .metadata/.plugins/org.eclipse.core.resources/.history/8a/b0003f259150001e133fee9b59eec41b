@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments::page_head('Products - Shopme  Admin', 'none')"/>
+	<body>
+		<div class="container-fluid">
+			<div th:replace="navigation::menu"></div>
+			<div>
+				<h2>Manage Products</h2>
+				<a th:href="@{/products/new}" class="fa-solid fa-folder-plus fa-2xl icon-dark m-2"></a>
+				
+				<a th:href="@{/products/export/csv}" class="fa-solid fa-file-csv fa-2xl icon-dark m-2"></a>
+				
+			</div>
+				
+			
+			<div th:replace="fragments::search_form_and_message('/products/page/1')"></div>
+			
+			<div class="full-details">
+				<table class="table table-bordered table-striped table-hover table-responsive-xl">
+					<thead class="table-dark">
+						<tr>
+							<th class="hideable-column">ID</th>
+							<th>Main Image</th>	
+							<th th:replace="fragments :: column_link('/products', 'name', 'Product Name', 'none')"/>
+							<th>Brand</th>							
+							<th>Category</th>
+							<th>Enabled</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="product : ${listProducts}">
+							<td class="hideable-column">[[${product.id}]]</td>
+							<td>
+								<img th:src="@{${product.mainImagePath}}" style="width: 120px;" class="img-fluid" />
+							</td>
+							<td><a class="link-detail" 
+									th:href="@{'/products/detail/'+${product.id}}"
+									title="View details of this product">[[${product.name}]]</a>	
+							</td>	
+							<td>[[${product.brand.name}]]</td>
+							<td>[[${product.category.name}]]</td>
+							<td>
+								<div th:replace="fragments :: status(${product.enabled}, 'product', '/products/'+${product.id})" />
+							</td>
+							<td>
+								<a class="fa-solid fa-file fa-2xl icon-green link-detail"
+									th:href="@{'/products/detail/'+${product.id}}"
+									title="View details of this product">
+								</a>
+								&nbsp;
+								<div th:replace="fragments :: edit('product', '/products/edit/'+${product.id})" />
+								&nbsp;
+								<div th:replace="fragments :: delete('product', ${product.id}, '/products/delete/'+${product.id}, true)" />
+							</td>			
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+			<div class="less-details">
+				<div th:each="product : ${listProducts}" class="row m-1">
+					<div class="col-6">	
+						<img th:src="@{${product.mainImagePath}}" style="width: 120px;" class="img-fluid" />
+					</div>
+					<div class="col-6">
+						<div><b>[[${product.name}]]</b></div>
+						<div class="mt-2">	
+							<div th:replace="fragments :: status(${product.enabled}, 'product', '/products/'+${product.id})" />
+							&nbsp;
+							<div th:replace="fragments :: edit('product', '/products/edit/'+${product.id})" />
+							&nbsp;
+							<div th:replace="fragments :: delete('product', ${product.id}, '/products/delete/'+${product.id}, true)" />
+						</div>
+					</div>
+					<div>
+						&nbsp;
+					</div>	
+				</div>
+			</div>
+			
+		
+			
+			<div th:replace="modal_fragments::confirm_modal"></div>
+			
+			<div class="modal fade" id="detailModal">
+				<div class="modal-dialog modal-2xl">
+					<div class="modal-content"></div>
+				</div>
+				
+			</div>
+			
+			<div th:replace="fragments::footer"></div>
+		</div>
+		<script th:src="@{/js/common_list.js}"></script>
+		<script type="text/javascript">
+			
+			moduleURL = "[[@{/products}]]";
+			
+			$(document).ready(function(){
+				$(".link-delete").on("click", function(e){
+					e.preventDefault();
+					showDeletionConfirmModal($(this),'product')
+				});
+				
+				$(".link-detail").on("click", function(e){
+					e.preventDefault();
+					linkDetailURL = $(this).attr("href");
+					$("#detailModal").modal("show").find(".modal-content").load(linkDetailURL);
+				});
+			});
+			
+		</script>
+	</body>
+</html>

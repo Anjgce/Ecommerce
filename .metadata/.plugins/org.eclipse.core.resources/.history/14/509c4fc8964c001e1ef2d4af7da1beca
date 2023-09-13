@@ -1,0 +1,12 @@
+package com.rajesh.admin.product;
+/*
+* @Author : Anuj Kumar Rajesh
+*/
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class ProductRestController {
+
+	
+}

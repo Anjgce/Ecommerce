@@ -1,0 +1,40 @@
+1693804881445	Extract local variable 'savedBrand'
+1693805991246	Extract local variable 'brands'
+1693806564134	Extract local variable 'brand'
+1693807325079	Extract local variable 'result'
+1693808776663	Extract local variable 'listBrands'
+1693809096256	Extract local variable 'listBrands'
+1693809225577	Copy file
+1693809239739	Rename resource 'categories.html'
+1693823400997	Copy file
+1693823416268	Rename resource 'category_form.html'
+1693883424022	Delete element
+1693883438059	Copy compilation unit
+1693883467980	Rename type 'CategoryServiceTests'
+1693883544988	Delete element
+1693911561652	Extract local variable 'savedProduct'
+1693912754784	Extract local variable 'iterableProducts'
+1693912958599	Extract local variable 'findById'
+1693913193066	Extract local variable 'product'
+1693913314880	Extract local variable 'updatedProduct'
+1693913565371	Extract local variable 'result'
+1693914579168	Extract local variable 'listProducts'
+1693914669884	Copy file
+1693914683139	Rename resource 'brands.html'
+1693967160100	Extract local variable 'listBrands'
+1693967329716	Copy file
+1693967347936	Rename resource 'brand_form.html'
+1693968758970	Copy file
+1693968789349	Rename resource 'modal_fragments.html'
+1693972005387	Extract local variable 'categories'
+1693978609878	Copy file
+1693985137298	Copy file
+1694051618622	Extract local variable 'product'
+1694052331389	Copy file
+1694227805137	Extract local variable 'product'
+1694228331167	Extract local variable 'savedProduct'
+1694229261399	Rename resource 'product_form.js'
+1694229282733	Copy file
+1694230834152	Copy file
+1694230931361	Delete element
+1694230951483	Copy file

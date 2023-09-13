@@ -1,0 +1,21 @@
+1693302763994	Extract local variable 'children'
+1693302823307	Extract local variable 'children'
+1693303264198	Extract local variable 'findAll'
+1693303490544	Extract local variable 'children'
+1693304073011	Extract local variable 'children'
+1693306694852	Extract local variable 'findAll'
+1693359140737	Copy file
+1693359160974	Rename resource 'user_form.html'
+1693361675787	Extract local variable 'listCategoriesUsedInForm'
+1693362264104	Extract local variable 'findAll'
+1693366525977	Extract local variable 'save'
+1693372731023	Extract local variable 'listRootCategories'
+1693373202572	Extract local variable 'findRootCategories'
+1693373691132	Rename method 'listChildren'
+1693374248707	Extract local variable 'children'
+1693384998634	Extract local variable 'listCategoriesUsedInForm'
+1693392128229	Extract local variable 'findByName'
+1693393001171	Extract local variable 'findByName'
+1693394354778	Extract local variable 'findByAlias'
+1693406569061	Copy file
+1693473447330	Copy file

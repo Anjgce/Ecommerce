@@ -1,0 +1,21 @@
+package com.rajesh.admin.product;
+
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
+
+import com.rajesh.common.entity.Product;
+
+/*
+* @Author : Anuj Kumar Rajesh
+*/
+public interface ProductRepository extends PagingAndSortingRepository<Product, Integer>, CrudRepository<Product, Integer> {
+
+	public Product findByName(String name);
+	
+	@Query("UPDATE Product p SET p.enabled = ?2 WHERE p.id = ?1") //?2 -> 2nd parameter and ?1 is first parameter
+	@Modifying
+	public void updateEnabledStatus(Integer id, boolean enabled);
+
+}

@@ -1,0 +1,15 @@
+package com.rajesh.admin.product;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
+
+import com.rajesh.common.entity.Product;
+
+/*
+* @Author : Anuj Kumar Rajesh
+*/
+public interface ProductRepository extends PagingAndSortingRepository<Product, Integer>, CrudRepository<Product, Integer> {
+
+	Product findByName(String name);
+
+}

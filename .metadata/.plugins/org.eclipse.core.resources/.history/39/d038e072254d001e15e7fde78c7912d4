@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<body>
+		<div th:fragment="content" th:remove="tag">
+			<div class="row">
+				<div class="col border m-3 p-2">
+					<div><label>Main Image:</label></div>
+					<div>
+						<img id="thumbnail" 
+							alt="Main image preview" 
+							class="img-fluid"
+							th:src="@{${product.mainImagePath}}"/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

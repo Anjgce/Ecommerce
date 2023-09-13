@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<head th:replace="fragments::page_head(${pageTitle}, 'tag')"/>
+
+		<!-- include summernote css/js -->
+		<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+		<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+	</head>
+	
+	<body>
+		<div class="container-fluid">
+			<div th:replace="navigation::menu"></div>
+			<div>
+				<h2>Manage Products | [[${pageTitle}]]</h2>
+			</div>
+			
+			
+			<form th:action="@{/products/save}" method="post" th:object="${product}">
+				<input type="hidden" th:field="*{id}"/>
+				<div>
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs" id="myTab" role="tablist">
+					  <li class="nav-item" role="presentation">
+					    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#overview" type="button" role="tab">Overview</button>
+					  </li>
+					  <li class="nav-item" role="presentation">
+					    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab">Description</button>
+					  </li>
+					  <li class="nav-item" role="presentation">
+					    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#images" type="button" role="tab">Images</button>
+					  </li>
+					  <li class="nav-item" role="presentation">
+					    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#details" type="button" role="tab">Details</button>
+					  </li>
+					   <li class="nav-item" role="presentation">
+					    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#details" type="button" role="tab">Shipping</button>
+					  </li>
+					</ul>
+					
+					<!-- Tab panes -->
+					<div class="tab-content">
+					  <div class="tab-pane active p-3" id="overview" role="tabpanel">
+						  <div th:replace="products/product_overview :: content"></div>
+					  </div>
+					  <div class="tab-pane" id="description" role="tabpanel">
+						   <div th:replace="products/product_description :: content"></div>
+					  </div>
+					  <div class="tab-pane" id="images" role="tabpanel">Images</div>
+					  <div class="tab-pane" id="details" role="tabpanel">Details</div>
+					  <div class="tab-pane" id="shipping" role="tabpanel">Shipping</div>
+					</div>
+				</div>
+				<div class="text-center">
+					<input type="submit" value="Save" class="btn btn-primary m-3"/>
+					<input type="button" value="Cancel" class="btn btn-secondary" id="buttonCancel"/>
+				</div>
+			</form>
+			
+			<div th:replace="modal_fragments::modal_dialog"></div>
+			
+			
+			<div th:replace="fragments::footer"></div>
+		</div>
+		<script type="text/javascript">
+			
+		moduleURL = "[[@{/products}]]";
+		brandModuleURL = "[[@{/brands}]]";
+		
+		dropdownBrands = $("#brand");
+		dropdownCategories = $("#category");
+		$(document).ready(function (){
+			$("#shortDescription").summernote();
+			$("#fullDescription").summernote();
+			dropdownBrands.change(function (){
+				dropdownCategories.empty();
+				getCategories();
+			});
+			getCategories();
+		});
+		
+		function getCategories(){
+			brandId =  dropdownBrands.val();
+			url = brandModuleURL+"/"+brandId+"/categories"
+			
+			$.get(url, function(responseJson){
+				$.each(responseJson, function (index, category){
+					$("<option>").val(category.id).text(category.name).appendTo(dropdownCategories);
+				});
+			});
+			
+		}
+		
+		</script>
+		<script th:src="@{/js/common_form.js}"></script>
+	</body>
+</html>

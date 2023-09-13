@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<body>
+		<div th:fragment="content" th:remove="tag">
+			<div class="row" id="divProductImages">
+				<div class="col border m-3 p-2">
+					<div><label>Main Image: [[${product.mainImage}]]</label></div>
+					<div>
+						<img id="thumbnail" 
+							alt="Main image preview" 
+							class="img-fluid"
+							th:src="@{${product.mainImagePath}}"/>
+					</div>
+					<div class="m-2">
+						<input type="file" 
+							id="fileImage" 
+							name="fileImage"
+							th:required="${product.mainImage == null}"
+							accept="image/png, image/jpeg, image/jpg"/>
+					</div>
+					<input type="hidden" th:field="*{mainImage}"/>
+				</div>
+				
+				<th:block th:each="productImage, status : ${product.images}">
+					<div class="col border m-3 p-2" th:id="'divExtraImage' + ${status.index}">
+						<div><label>Extra Image #[[${status.index + 1}]]: [[${productImage.name}]]</label>
+							<a name="linkRemoveExtraImage" 
+								class="fa-solid fa-trash icon-dark" 
+								title="Remove this image"></a>
+						</div>
+						<div>
+							<img th:id="'extraThumbnail' + ${status.index}" 
+								alt="Extra image #[[${status.index}]] preview" 
+								class="img-fluid"
+								th:src="@{${productImage.imagePath}}"/>
+						</div>
+						<div class="m-2">
+							<input type="file" 
+								name="extraImage"
+								accept="image/png, image/jpeg, image/jpg"/>	
+						</div>
+					</div>
+				</th:block>
+				
+				<div class="col border m-3 p-2" id="'divExtraImage'+${numberOfExistingExtraImages}">
+					<div th:id="'extraImageHeader'+${numberOfExistingExtraImages}"><label>Extra Image #[[${numberOfExistingExtraImages + 1}]]:</label></div>
+					<div>
+						<img th:id="'extraThumbnail'+${numberOfExistingExtraImages}" 
+							alt="Extra image #[[${numberOfExistingExtraImages}]] preview" 
+							class="img-fluid"
+							th:src="@{/images/image-thumbnail.png}"/>
+					</div>
+					<div class="m-2">
+						<input type="file" 
+							name="extraImage"
+							accept="image/png, image/jpeg, image/jpg"/>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

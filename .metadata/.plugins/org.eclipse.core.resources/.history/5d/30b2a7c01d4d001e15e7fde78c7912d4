@@ -1,0 +1,13 @@
+package com.rajesh.common.entity;
+/*
+* @Author : Anuj Kumar Rajesh
+*/
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "product_images")
+public class ProductImage {
+
+}

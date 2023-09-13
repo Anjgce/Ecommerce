@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<body>
+		<div th:fragment="content" th:remove="tag">
+			<div class="form-group row">
+				The following information is important to calculate shipping cost for the product.<br/>
+				The dimension (L X W X H) is for the box that is used to package the product - not the product's dimensions.
+				
+			</div>
+		</div>
+	</body>
+</html>

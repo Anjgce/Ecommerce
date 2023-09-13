@@ -1,0 +1,132 @@
+<div class="modal-header">
+	<h4 class="modal-title">Product Details</h4>
+	<button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+</div>
+
+<div>
+	<!-- Nav tabs -->
+	<ul class="nav nav-tabs" id="myTab" role="tablist">
+	  <li class="nav-item" role="presentation">
+	    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#overview" type="button" role="tab">Overview</button>
+	  </li>
+	  <li class="nav-item" role="presentation">
+	    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab">Description</button>
+	  </li>
+	  <li class="nav-item" role="presentation">
+	    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#images" type="button" role="tab">Images</button>
+	  </li>
+	  <li class="nav-item" role="presentation">
+	    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#details" type="button" role="tab">Details</button>
+	  </li>
+	   <li class="nav-item" role="presentation">
+	    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#shipping" type="button" role="tab">Shipping</button>
+	  </li>
+	</ul>
+	
+	<div class="form-group row">
+		<label class="col-sm-2 col-form-label">Product Name:</label>
+		<div class="col-sm-10">
+			<input type="text" 
+				class="form-control" 
+				th:value="${product.name}"
+				readonly/>
+		</div>
+	</div>
+	
+	<div class="form-group row">
+		<label class="col-sm-2 col-form-label">Alias:</label>
+		<div class="col-sm-10">
+			<input type="text" 
+				class="form-control" 
+				th:value="${product.alias}"
+				readonly/>
+		</div>
+	</div>
+	
+	<div class="form-group row">
+		<label class="col-sm-2 col-form-label">Brand:</label>
+		<div class="col-sm-10">
+			<input type="text" 
+				class="form-control" 
+				th:value="${product.brand.name}"
+				readonly/>
+		</div>
+	</div>
+	
+	<div class="form-group row">
+		<label class="col-sm-2 col-form-label">Category:</label>
+		<div class="col-sm-10">
+			<input type="text" 
+				class="form-control" 
+				th:value="${product.category.name}"
+				readonly/>
+		</div>
+	</div>
+	
+	<div class="form-group row">
+		<label class="col-sm-2 col-form-label">Enabled:</label>
+		<div class="col-sm-10">
+			<input type="checkbox" th:value="${product.enabled}" onclick="return false"/>
+		</div>
+	</div>
+	
+	<div class="form-group row">
+		<label class="col-sm-2 col-form-label">In-Stock:</label>
+		<div class="col-sm-10">
+			<input type="checkbox" th:value="${product.inStock}" onclick="return false"/>
+		</div>
+	</div>
+	
+	<div class="form-group row">
+		<label class="col-sm-2 col-form-label">Cost:</label>
+		<div class="col-sm-10">
+			<input type="number" 
+				class="form-control" 
+				th:value="${product.cost}"
+				readonly/>
+		</div>
+	</div>
+	
+	<div class="form-group row">
+		<label class="col-sm-2 col-form-label">Price:</label>
+		<div class="col-sm-10">
+			<input type="number" 
+				class="form-control" 
+				th:value="${product.price}"
+				readonly/>
+		</div>
+	</div>
+	
+	<div class="form-group row">
+		<label class="col-sm-2 col-form-label">Discount:</label>
+		<div class="col-sm-10">
+			<input type="number" 
+				class="form-control" 
+				th:value="${product.discountPercent}"
+				readonly/>
+		</div>
+	</div>
+	
+	<!-- Tab panes -->
+	<div class="tab-content">
+	  <div class="tab-pane active p-3" id="overview" role="tabpanel">
+		  
+	  </div>
+	  <div class="tab-pane" id="description" role="tabpanel">
+		   
+	  </div>
+	  <div class="tab-pane" id="images" role="tabpanel">
+		   
+	  </div>
+	  <div class="tab-pane p-3" id="details" role="tabpanel">
+		  
+	  </div>
+	  <div class="tab-pane p-3" id="shipping" role="tabpanel">
+		  
+	  </div>
+	</div>
+</div>
+
+<div class="modal-footer">
+	<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+</div>

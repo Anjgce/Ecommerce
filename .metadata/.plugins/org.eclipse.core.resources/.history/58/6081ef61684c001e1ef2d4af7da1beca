@@ -1,0 +1,7 @@
+package com.rajesh.admin.brand;
+/*
+* @Author : Anuj Kumar Rajesh
+*/
+public class CategoryDTO {
+
+}

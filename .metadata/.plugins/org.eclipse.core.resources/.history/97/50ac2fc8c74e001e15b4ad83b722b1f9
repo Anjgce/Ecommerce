@@ -1,0 +1,14 @@
+function addNextDetailSection(){
+	allDivDetails = $("[id^='divDetail']");
+	divDetailsCount = allDivDetails.length;
+	
+	htmlDetailSection=`
+		<div class="form-inline" id="divDitail${divDetailsCount}">
+			<label class="m-3">Name:</label>
+			<input type="text" class="form-control" name="detailNames" maxlength="255" />
+			<label class="m-3">Value:</label>
+			<input type="text" class="form-control" name="detailValues" maxlength="255" />
+		</div>
+	`;
+	$("#divProductDetails").append(htmlDetailSection);
+}

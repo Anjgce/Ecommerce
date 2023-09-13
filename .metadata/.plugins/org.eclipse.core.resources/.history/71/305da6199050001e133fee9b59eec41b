@@ -1,0 +1,51 @@
+<div class="modal-header">
+	<h4 class="modal-title">Product Details</h4>
+	<button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+</div>
+
+<div>
+	<!-- Nav tabs -->
+	<ul class="nav nav-tabs" id="myTab" role="tablist">
+	  <li class="nav-item" role="presentation">
+	    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#overview" type="button" role="tab">Overview</button>
+	  </li>
+	  <li class="nav-item" role="presentation">
+	    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab">Description</button>
+	  </li>
+	  <li class="nav-item" role="presentation">
+	    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#images" type="button" role="tab">Images</button>
+	  </li>
+	  <li class="nav-item" role="presentation">
+	    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#details" type="button" role="tab">Details</button>
+	  </li>
+	   <li class="nav-item" role="presentation">
+	    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#shipping" type="button" role="tab">Shipping</button>
+	  </li>
+	</ul>
+	
+	<!-- Tab panes -->
+	<div class="tab-content">
+	  <div class="tab-pane active p-3" id="overview" role="tabpanel">
+		  <div th:replace="products/product_overview :: content"></div>
+	  </div>
+	  <div class="tab-pane" id="description" role="tabpanel">
+		   <div th:replace="products/product_description :: content"></div>
+	  </div>
+	  <div class="tab-pane" id="images" role="tabpanel">
+		   <div th:replace="products/product_images :: content"></div>
+	  </div>
+	  <div class="tab-pane p-3" id="details" role="tabpanel">
+		  <div th:replace="products/product_details :: content"></div>
+		  <div>
+			  <input type="button" class="btn btn-secondary" value="Add More Detail" onclick="addNextDetailSection()"/>
+		  </div>
+	  </div>
+	  <div class="tab-pane p-3" id="shipping" role="tabpanel">
+		  <div th:replace="products/product_shipping :: content"></div>
+	  </div>
+	</div>
+</div>
+
+<div class="modal-footer">
+	<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+</div>

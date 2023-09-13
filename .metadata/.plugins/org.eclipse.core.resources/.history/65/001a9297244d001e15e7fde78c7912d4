@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<body>
+		<div th:fragment="content" th:remove="tag">
+			<div class="row">
+				<div class="col border m-3 p-2">
+					<label>Main Image:</label>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

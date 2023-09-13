@@ -1,0 +1,7 @@
+package com.rajesh.common.entity;
+/*
+* @Author : Anuj Kumar Rajesh
+*/
+public class ProductImage {
+
+}
